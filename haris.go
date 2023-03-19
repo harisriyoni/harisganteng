@@ -88,9 +88,9 @@ func GetDataSurat(isisurat string) (data Surat) {
 	return data
 }
 
-func GetUserData(nama string) (data []User) {
+func GetUserData(telepon string) (data []User) {
 	user := MongoConnect("suratdb").Collection("users")
-	filter := bson.M{"nama": nama}
+	filter := bson.M{"telepon": telepon}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
 		fmt.Println("GetUserData :", err)
