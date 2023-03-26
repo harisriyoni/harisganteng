@@ -95,7 +95,7 @@ func GetEmailData(isisurat string) (data []Surat) {
 	return
 }
 
-func InsertIsiSurat(db *mongo.Database, collect string, Isisurat string, Subject string) (InsertedID interface{}) {
+func InsertSuratData(db *mongo.Database, collect string, Isisurat string, Subject string) (InsertedID interface{}) {
 	var srt Surat
 	srt.Isisurat = Isisurat
 	srt.Subject = Subject
