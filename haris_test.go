@@ -84,8 +84,14 @@ func TestGetUserData(t *testing.T) {
 	fmt.Println(gege)
 }
 
-func TestGetDataSurat(t *testing.T) {
-	isisurat := "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!"
-	hiya := GetDataSurat(isisurat)
+func TestGetEmailData(t *testing.T) {
+	subject := "Surat Pekerjaan"
+	hiya := GetEmailData(subject)
 	fmt.Println(hiya)
 }
+
+// func TestInsertIsiSurat(t *testing.T) {
+
+// 	result := InsertIsiSurat(MongoConnect())
+// 	fmt.Println(result)
+// }

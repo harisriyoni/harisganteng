@@ -20,8 +20,8 @@ func MongoConnect(dbname string) (db *mongo.Database) {
 	return client.Database(dbname)
 }
 
-func InsertOneDoc(db string, collection string, doc interface{}) (insertedID interface{}) {
-	insertResult, err := MongoConnect(db).Collection(collection).InsertOne(context.TODO(), doc)
+func InsertOneDoc(db *mongo.Database, collection string, doc interface{}) (insertedID interface{}) {
+	insertResult, err := db.Collection(collection).InsertOne(context.TODO(), doc)
 	if err != nil {
 		fmt.Printf("InsertOneDoc: %v\n", err)
 	}
@@ -67,27 +67,6 @@ func InsertAbout(db string, about About) (insertedID interface{}) {
 	return insertResult.InsertedID
 }
 
-// get
-//
-//	func GetUserData(nama string) (data User) {
-//		user := MongoConnect("suratdb").Collection("users")
-//		filter := bson.M{"nama": nama}
-//		err := user.FindOne(context.TODO(), filter).Decode(&data)
-//		if err != nil {
-//			fmt.Printf("GetUserData: %v\n", err)
-//		}
-//		return data
-//	}
-func GetDataSurat(isisurat string) (data Surat) {
-	surat := MongoConnect("suratdb").Collection("surat")
-	filter := bson.M{"isisurat": isisurat}
-	err := surat.FindOne(context.TODO(), filter).Decode(&data)
-	if err != nil {
-		fmt.Printf("GetDataSurat: %v\n", err)
-	}
-	return data
-}
-
 func GetUserData(telepon string) (data []User) {
 	user := MongoConnect("suratdb").Collection("users")
 	filter := bson.M{"telepon": telepon}
@@ -100,4 +79,25 @@ func GetUserData(telepon string) (data []User) {
 		fmt.Println(err)
 	}
 	return
+}
+
+func GetEmailData(isisurat string) (data []Surat) {
+	user := MongoConnect("suratdb").Collection("surat")
+	filter := bson.M{"subject": isisurat}
+	cursor, err := user.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetUserData :", err)
+	}
+	err = cursor.All(context.TODO(), &data)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return
+}
+
+func InsertIsiSurat(db *mongo.Database, collect string, Isisurat string, Subject string) (InsertedID interface{}) {
+	var srt Surat
+	srt.Isisurat = Isisurat
+	srt.Subject = Subject
+	return InsertOneDoc(db, collect, srt)
 }
