@@ -86,7 +86,7 @@ func GetEmailData(isisurat string) (data []Surat) {
 	filter := bson.M{"subject": isisurat}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
-		fmt.Println("GetUserData :", err)
+		fmt.Println("GetEmailData :", err)
 	}
 	err = cursor.All(context.TODO(), &data)
 	if err != nil {
