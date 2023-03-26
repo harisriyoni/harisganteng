@@ -27,7 +27,7 @@ func TestInsertSurat(t *testing.T) {
 		ID:        primitive.NewObjectID(),
 		Isisurat:  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!",
 		Subject:   "Surat Pekerjaan",
-		Nosubject: "1",
+		Nosubject: "123456789",
 	}
 	insertedID := InsertSurat(dbname, surat)
 	if insertedID == nil {
