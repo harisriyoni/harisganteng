@@ -83,7 +83,7 @@ func GetUserData(telepon string) (data []User) {
 
 func GetEmailData(isisurat string) (data []Surat) {
 	user := MongoConnect("suratdb").Collection("surat")
-	filter := bson.M{"subject": isisurat}
+	filter := bson.M{"nosubject": isisurat}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
 		fmt.Println("GetEmailData :", err)

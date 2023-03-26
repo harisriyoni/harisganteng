@@ -24,9 +24,10 @@ func TestInsertUser(t *testing.T) {
 func TestInsertSurat(t *testing.T) {
 	dbname := "suratdb"
 	surat := Surat{
-		ID:       primitive.NewObjectID(),
-		Isisurat: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!",
-		Subject:  "Surat Pekerjaan",
+		ID:        primitive.NewObjectID(),
+		Isisurat:  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!",
+		Subject:   "Surat Pekerjaan",
+		Nosubject: "1",
 	}
 	insertedID := InsertSurat(dbname, surat)
 	if insertedID == nil {
@@ -85,8 +86,8 @@ func TestGetUserData(t *testing.T) {
 }
 
 func TestGetEmailData(t *testing.T) {
-	subject := "Surat Pekerjaan"
-	hiya := GetEmailData(subject)
+	nosubject := "1"
+	hiya := GetEmailData(nosubject)
 	fmt.Println(hiya)
 }
 
