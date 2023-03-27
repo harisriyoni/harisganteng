@@ -30,3 +30,9 @@ type About struct {
 	Isi_dua  string             `bson:"isi_dua,omitempty" json:"isi_dua,omitempty"`
 	Image    string             `bson:"image,omitempty" json:"image,omitempty"`
 }
+
+type Return struct {
+	Status     string `bson:"status,omitempty" json:"status,omitempty"`
+	Message    string `bson:"message,omitempty" json:"message,omitempty"`
+	InsertedID string `bson:"insertedid,omitempty" json:"insertedid,omitempty"`
+}
