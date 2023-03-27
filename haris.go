@@ -68,7 +68,7 @@ func InsertAbout(db string, about Aboutsurat) (insertedID interface{}) {
 }
 
 func GetUserData(telepon string) (data []UserSurat) {
-	user := MongoConnect("suratdb").Collection("users")
+	user := MongoConnect("suratdibai").Collection("users")
 	filter := bson.M{"telepon": telepon}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
@@ -81,7 +81,7 @@ func GetUserData(telepon string) (data []UserSurat) {
 	return
 }
 func GetNamaUser(nama string) (data []UserSurat) {
-	user := MongoConnect("suratdb").Collection("users")
+	user := MongoConnect("suratdibai").Collection("users")
 	filter := bson.M{"nama": nama}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
@@ -95,7 +95,7 @@ func GetNamaUser(nama string) (data []UserSurat) {
 }
 
 func GetEmailData(isisurat string) (data []Surat) {
-	user := MongoConnect("suratdb").Collection("surat")
+	user := MongoConnect("suratdibai").Collection("surat")
 	filter := bson.M{"nosubject": isisurat}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
@@ -116,7 +116,7 @@ func InsertSuratData(db *mongo.Database, collect string, Isisurat string, Subjec
 }
 
 func GetSurat(surat string) (data []Surat) {
-	user := MongoConnect("suratdb").Collection("surat")
+	user := MongoConnect("suratdibai").Collection("surat")
 	filter := bson.M{"subject": surat}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
@@ -129,7 +129,7 @@ func GetSurat(surat string) (data []Surat) {
 	return
 }
 func GetoSurato(hiya string) (data []Surat) {
-	user := MongoConnect("suratdb").Collection("surat")
+	user := MongoConnect("suratdibai").Collection("surat")
 	filter := bson.M{"subject": hiya}
 	cursor, err := user.Find(context.TODO(), filter)
 	if err != nil {
