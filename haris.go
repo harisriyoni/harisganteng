@@ -27,7 +27,7 @@ func InsertOneDoc(db *mongo.Database, collection string, doc interface{}) (inser
 	}
 	return insertResult.InsertedID
 }
-func InsertUser(db string, user User) (insertedID interface{}) {
+func InsertUser(db string, user UserSurat) (insertedID interface{}) {
 	insertResult, err := MongoConnect(db).Collection("users").InsertOne(context.TODO(), user)
 	if err != nil {
 		fmt.Printf("InsertUser: %v\n", err)
@@ -51,7 +51,7 @@ func InsertKategori(db string, kategori Kategori) (insertedID interface{}) {
 	return insertResult.InsertedID
 }
 
-func InsertLokasi(db string, lokasi Lokasi) (insertedID interface{}) {
+func InsertLokasi(db string, lokasi Lokasinya) (insertedID interface{}) {
 	insertResult, err := MongoConnect(db).Collection("lokasi").InsertOne(context.TODO(), lokasi)
 	if err != nil {
 		fmt.Printf("InsertLokasi: %v\n", err)
@@ -59,7 +59,7 @@ func InsertLokasi(db string, lokasi Lokasi) (insertedID interface{}) {
 	return insertResult.InsertedID
 }
 
-func InsertAbout(db string, about About) (insertedID interface{}) {
+func InsertAbout(db string, about Aboutsurat) (insertedID interface{}) {
 	insertResult, err := MongoConnect(db).Collection("about").InsertOne(context.TODO(), about)
 	if err != nil {
 		fmt.Printf("InsertAbout: %v\n", err)
@@ -67,7 +67,7 @@ func InsertAbout(db string, about About) (insertedID interface{}) {
 	return insertResult.InsertedID
 }
 
-func GetUserData(telepon string) (data []User) {
+func GetUserData(telepon string) (data []UserSurat) {
 	user := MongoConnect("suratdb").Collection("users")
 	filter := bson.M{"telepon": telepon}
 	cursor, err := user.Find(context.TODO(), filter)
@@ -80,7 +80,7 @@ func GetUserData(telepon string) (data []User) {
 	}
 	return
 }
-func GetNamaUser(nama string) (data []User) {
+func GetNamaUser(nama string) (data []UserSurat) {
 	user := MongoConnect("suratdb").Collection("users")
 	filter := bson.M{"nama": nama}
 	cursor, err := user.Find(context.TODO(), filter)

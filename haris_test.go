@@ -9,7 +9,7 @@ import (
 
 func TestInsertUser(t *testing.T) {
 	dbname := "suratdb"
-	user := User{
+	user := UserSurat{
 		ID:      primitive.NewObjectID(),
 		Nama:    "Haris Riyoni",
 		Email:   "harisriyoni@gmail.com",
@@ -54,7 +54,7 @@ func TestInsertKategori(t *testing.T) {
 
 func TestInsertLokasi(t *testing.T) {
 	dbname := "suratdb"
-	lokasi := Lokasi{
+	lokasi := Lokasinya{
 		ID:     primitive.NewObjectID(),
 		Region: "Jakarta",
 	}
@@ -66,7 +66,7 @@ func TestInsertLokasi(t *testing.T) {
 
 func TestInsertAbout(t *testing.T) {
 	dbname := "suratdb"
-	about := About{
+	about := Aboutsurat{
 		ID:       primitive.NewObjectID(),
 		Isi_satu: "Ini isi satu",
 		Isi_dua:  "Ini isi dua",
