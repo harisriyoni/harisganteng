@@ -26,7 +26,7 @@ func TestInsertSurat(t *testing.T) {
 	surat := Surat{
 		ID:        primitive.NewObjectID(),
 		Isisurat:  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!",
-		Subject:   "Surat Pekerjaan",
+		Subject:   "Kamu",
 		Nosubject: "123456789",
 	}
 	insertedID := InsertSurat(dbname, surat)
@@ -97,7 +97,7 @@ func TestGetNamaUser(t *testing.T) {
 	fmt.Println(hiya)
 }
 func TestGetSurat(t *testing.T) {
-	nama := "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!"
+	nama := "Kamu"
 	hiya := GetSurat(nama)
 	fmt.Println(hiya)
 }
