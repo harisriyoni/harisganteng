@@ -114,3 +114,17 @@ func InsertSuratData(db *mongo.Database, collect string, Isisurat string, Subjec
 	srt.Subject = Subject
 	return InsertOneDoc(db, collect, srt)
 }
+
+func GetSurat(surat string) (data []Surat) {
+	user := MongoConnect("suratdb").Collection("surat")
+	filter := bson.M{"isisurat": surat}
+	cursor, err := user.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetSurat :", err)
+	}
+	err = cursor.All(context.TODO(), &data)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return
+}

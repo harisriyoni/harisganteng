@@ -96,6 +96,11 @@ func TestGetNamaUser(t *testing.T) {
 	hiya := GetNamaUser(nama)
 	fmt.Println(hiya)
 }
+func TestGetSurat(t *testing.T) {
+	nama := "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!"
+	hiya := GetSurat(nama)
+	fmt.Println(hiya)
+}
 
 // func TestInsertIsiSurat(t *testing.T) {
 
