@@ -80,6 +80,19 @@ func GetUserData(telepon string) (data []User) {
 	}
 	return
 }
+func GetNamaUser(nama string) (data []User) {
+	user := MongoConnect("suratdb").Collection("users")
+	filter := bson.M{"nama": nama}
+	cursor, err := user.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetNamaUser :", err)
+	}
+	err = cursor.All(context.TODO(), &data)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return
+}
 
 func GetEmailData(isisurat string) (data []Surat) {
 	user := MongoConnect("suratdb").Collection("surat")

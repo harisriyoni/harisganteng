@@ -80,7 +80,7 @@ func TestInsertAbout(t *testing.T) {
 }
 
 func TestGetUserData(t *testing.T) {
-	nama := "Haris Riyoni"
+	nama := "081234567890"
 	gege := GetUserData(nama)
 	fmt.Println(gege)
 }
@@ -88,6 +88,12 @@ func TestGetUserData(t *testing.T) {
 func TestGetEmailData(t *testing.T) {
 	nosubject := "1"
 	hiya := GetEmailData(nosubject)
+	fmt.Println(hiya)
+}
+
+func TestGetNamaUser(t *testing.T) {
+	nama := "Haris Riyoni"
+	hiya := GetNamaUser(nama)
 	fmt.Println(hiya)
 }
 
