@@ -128,3 +128,16 @@ func GetSurat(surat string) (data []Surat) {
 	}
 	return
 }
+func GetoSurato(hiya string) (data []Surat) {
+	user := MongoConnect("suratdb").Collection("surat")
+	filter := bson.M{"subject": hiya}
+	cursor, err := user.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetSurat :", err)
+	}
+	err = cursor.All(context.TODO(), &data)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return
+}
