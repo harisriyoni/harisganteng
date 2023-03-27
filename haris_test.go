@@ -24,10 +24,9 @@ func TestInsertUser(t *testing.T) {
 func TestInsertSurat(t *testing.T) {
 	dbname := "suratdb"
 	surat := Surat{
-		ID:        primitive.NewObjectID(),
-		Isisurat:  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!",
-		Subject:   "Kamu",
-		Nosubject: "123456789",
+		ID:       primitive.NewObjectID(),
+		Isisurat: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem!",
+		Subject:  "Kamu",
 	}
 	insertedID := InsertSurat(dbname, surat)
 	if insertedID == nil {

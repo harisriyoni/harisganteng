@@ -11,10 +11,9 @@ type User struct {
 	Telepon string             `bson:"telepon" json:"telepon"`
 }
 type Surat struct {
-	ID        primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
-	Isisurat  string             `bson:"isisurat" json:"isisurat"`
-	Subject   string             `bson:"subject" json:"subject"`
-	Nosubject string             `bson:"nosubject" json:"nosubject"`
+	ID       primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
+	Isisurat string             `bson:"isisurat" json:"isisurat"`
+	Subject  string             `bson:"subject" json:"subject"`
 }
 type Kategori struct {
 	ID           primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
