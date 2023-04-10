@@ -41,7 +41,7 @@ func TestInsertKategori(t *testing.T) {
 		Isisurat: "Ini isi surat terserah bebas mau ngisi apa ya gesya",
 		Subject:  "Pengumpulan data diri kepada perusahaan haris.com",
 	}
-	kategori := Kategori{
+	kategori := Kategorisurat{
 		ID:           primitive.NewObjectID(),
 		NamaKategori: "Kategori pekerjaan",
 		Surat:        []Surat{surat},
@@ -54,7 +54,7 @@ func TestInsertKategori(t *testing.T) {
 
 func TestInsertLokasi(t *testing.T) {
 	dbname := "suratdibai"
-	lokasi := Lokasinya{
+	lokasi := Lokasisurat{
 		ID:     primitive.NewObjectID(),
 		Region: "Jakarta",
 	}

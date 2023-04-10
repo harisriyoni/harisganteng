@@ -43,7 +43,7 @@ func InsertSurat(db string, surat Surat) (insertedID interface{}) {
 	return insertResult.InsertedID
 }
 
-func InsertKategori(db string, kategori Kategori) (insertedID interface{}) {
+func InsertKategori(db string, kategori Kategorisurat) (insertedID interface{}) {
 	insertResult, err := MongoConnect(db).Collection("kategori").InsertOne(context.TODO(), kategori)
 	if err != nil {
 		fmt.Printf("InsertKategori: %v\n", err)
@@ -51,7 +51,7 @@ func InsertKategori(db string, kategori Kategori) (insertedID interface{}) {
 	return insertResult.InsertedID
 }
 
-func InsertLokasi(db string, lokasi Lokasinya) (insertedID interface{}) {
+func InsertLokasi(db string, lokasi Lokasisurat) (insertedID interface{}) {
 	insertResult, err := MongoConnect(db).Collection("lokasi").InsertOne(context.TODO(), lokasi)
 	if err != nil {
 		fmt.Printf("InsertLokasi: %v\n", err)
@@ -140,4 +140,10 @@ func GetoSurato(hiya string) (data []Surat) {
 		fmt.Println(err)
 	}
 	return
+}
+func InsertSuratChat(db *mongo.Database, collect string, Isisurat string, Subject string) (InsertedID interface{}) {
+	var surat Surat
+	surat.Isisurat = Isisurat
+	surat.Subject = Subject
+	return InsertOneDoc(db, collect, surat)
 }

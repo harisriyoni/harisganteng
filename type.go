@@ -15,12 +15,12 @@ type Surat struct {
 	Isisurat string             `bson:"isisurat" json:"isisurat"`
 	Subject  string             `bson:"subject" json:"subject"`
 }
-type Kategori struct {
+type Kategorisurat struct {
 	ID           primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
 	NamaKategori string             `bson:"nama_kategori" json:"nama_kategori"`
 	Surat        []Surat            `bson:"surat" json:"surat"`
 }
-type Lokasinya struct {
+type Lokasisurat struct {
 	ID     primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Region string             `bson:"region,omitempty" json:"region,omitempty"`
 }
